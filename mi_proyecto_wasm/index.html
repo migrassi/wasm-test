@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo WebAssembly</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f0f2f5; margin: 0; }
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 400px; }
+        button { background: #f46623; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s; }
+        button:hover { background: #de4c0b; }
+        h1 { color: #333; margin-bottom: 10px; }
+        #resultado { margin-top: 20px; font-size: 18px; color: #444; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¡Wasm + Rust! 🦀⚡</h1>
+        <p>Calculando el elemento 40 de Fibonacci en tiempo récord.</p>
+        <button id="btn-calcular">Iniciar cálculo en Rust</button>
+        <div id="resultado">Esperando acción...</div>
+    </div>
+
+    <script type="module">
+        // Importamos el puente generado automáticamente por wasm-pack
+        import init, { calcular_fibonacci } from './pkg/mi_proyecto_wasm.js';
+
+        async function correr() {
+            // Inicializamos el módulo binario de WebAssembly
+            await init();
+
+            document.getElementById('btn-calcular').addEventListener('click', () => {
+                document.getElementById('resultado').innerText = "Calculando en Rust...";
+                
+                // Forzamos un pequeño delay para que la UI actualice el texto antes del bloqueo matemático
+                setTimeout(() => {
+                    const t0 = performance.now();
+                    const res = calcular_fibonacci(40); 
+                    const t1 = performance.now();
+
+                    document.getElementById('resultado').innerHTML = `
+                        Resultado: <strong>${res}</strong><br>
+                        Tiempo: <strong>${(t1 - t0).toFixed(2)} ms</strong>
+                    `;
+                }, 50);
+            });
+        }
+
+        correr();
+    </script>
+</body>
+</html>
