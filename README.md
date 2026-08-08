@@ -25,7 +25,9 @@ El experimento consistió en calcular el elemento 40 de la sucesión de Fibonacc
 ---
 ## Cómo probarlo
 
-Se puede ejecutar la prueba directamente en https://migrassi.github.io/wasm-test/mi_proyecto_wasm/
+Se puede ejecutar la prueba directamente [aquí](!https://migrassi.github.io/wasm-test/mi_proyecto_wasm/)
+
+
 ---
 ## Cómo Ejecutarlo
 
