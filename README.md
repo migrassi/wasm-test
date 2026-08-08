@@ -10,7 +10,7 @@ El experimento consistió en calcular el elemento 40 de la sucesión de Fibonacc
 | :--- | :--- | :--- | :--- |
 | **Recursivo** | `Debug` | **245.70 ms** | Sobrecarga por información de depuración. |
 | **Recursivo** | `Release` | **239.90 ms** | Cuello de botella en la Pila de Llamadas (*Call Stack*) del navegador. |
-| **Iterativo** | `Release` 🚀 | **0.20 ms** | **Optimización máxima (~120,000% más rápido).** Ejecución directa en registros del CPU. |
+| **Iterativo** | `Release` | **0.20 ms** | **Optimización máxima (~120,000% más rápido).** Ejecución directa en registros del CPU. |
 
 ---
 
@@ -23,8 +23,11 @@ El experimento consistió en calcular el elemento 40 de la sucesión de Fibonacc
 *   **GitHub Codespaces**: Entorno de desarrollo en la nube basado en contenedores Docker de desarrollo (`devcontainers`).
 
 ---
+## Cómo probarlo
 
-## 🚀 Cómo Ejecutarlo
+Se puede ejecutar la prueba directamente en https://migrassi.github.io/wasm-test/mi_proyecto_wasm/
+---
+## Cómo Ejecutarlo
 
 Para levantar este entorno en un Codespace o de forma local:
 
